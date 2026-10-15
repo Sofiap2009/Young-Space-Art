@@ -1,0 +1,434 @@
+
+/* =================================
+   1. COLORES Y DISEÑO GENERAL
+   Cambia estos valores para personalizar la página
+================================= */
+:root {
+  --fondo: #fff8f2;
+  --fondo-tarjetas: #ffffff;
+  --color-principal: #7b3fe4;
+  --color-secundario: #ff8c69;
+  --color-texto: #30283b;
+  --color-suave: #71677c;
+  --color-borde: #eee3f5;
+
+  --fuente-titulos: "Trebuchet MS", sans-serif;
+  --fuente-texto: Arial, sans-serif;
+
+  --radio: 20px;
+  --sombra: 0 10px 30px rgba(48, 40, 59, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  scroll-margin-top: 85px;
+}
+
+/* =================================
+   2. MENÚ SUPERIOR
+================================= */
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 7%;
+  background: var(--fondo);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.logo span,
+h1 span,
+h2 span {
+  color: var(--color-principal);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.menu a {
+  font-size: 0.95rem;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  color: var(--color-principal);
+}
+
+/* =================================
+   3. PORTADA / INICIO
+================================= */
+.portada {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 45px;
+  padding: 85px 8%;
+  min-height: 570px;
+}
+
+.etiqueta {
+  color: var(--color-principal);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: 22px;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 20px;
+}
+
+.portada-contenido > p:not(.etiqueta) {
+  color: var(--color-suave);
+  max-width: 550px;
+  margin-bottom: 25px;
+}
+
+.portada-imagen img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 45% 45% 20px 20px;
+  box-shadow: var(--sombra);
+  background: var(--color-borde);
+}
+
+.botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.boton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 22px;
+  border: 2px solid var(--color-principal);
+  border-radius: 999px;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.boton:hover {
+  transform: translateY(-3px);
+}
+
+.boton-principal {
+  background: var(--color-principal);
+  color: white;
+}
+
+.boton-principal:hover {
+  background: var(--color-texto);
+  border-color: var(--color-texto);
+}
+
+.boton-secundario {
+  color: var(--color-principal);
+  background: transparent;
+}
+
+/* =================================
+   4. SECCIONES
+================================= */
+.seccion {
+  padding: 85px 8%;
+  text-align: center;
+}
+
+.nosotros,
+.galeria {
+  background: var(--fondo-tarjetas);
+}
+
+.texto-seccion {
+  max-width: 720px;
+  margin: 0 auto 35px;
+  color: var(--color-suave);
+}
+
+/* =================================
+   5. TARJETAS DE NOSOTROS Y TALLERES
+================================= */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+  text-align: left;
+}
+
+.tarjeta {
+  overflow: hidden;
+  background: var(--fondo-tarjetas);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.nosotros .tarjeta {
+  padding: 28px;
+}
+
+.icono {
+  display: inline-block;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.tarjeta h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+}
+
+.tarjeta p {
+  color: var(--color-suave);
+}
+
+.tarjeta-taller img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: var(--color-borde);
+}
+
+.tarjeta-contenido {
+  padding: 22px;
+}
+
+.enlace {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+.enlace:hover {
+  text-decoration: underline;
+}
+
+/* =================================
+   6. GALERÍA DE IMÁGENES
+================================= */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  text-align: left;
+}
+
+.galeria-grid figure {
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: var(--fondo);
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  background: var(--color-borde);
+  transition: transform 0.3s;
+}
+
+.galeria-grid figure:hover img {
+  transform: scale(1.04);
+}
+
+.galeria-grid figcaption {
+  padding: 15px;
+  font-weight: bold;
+}
+
+/* =================================
+   7. CONTACTO
+================================= */
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 560px;
+  margin: 30px auto 0;
+  padding: 28px;
+  text-align: left;
+  background: var(--fondo-tarjetas);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.contacto label {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  background: var(--fondo);
+  color: var(--color-texto);
+  font: inherit;
+}
+
+.contacto input:focus,
+.contacto textarea:focus {
+  outline: 2px solid var(--color-principal);
+}
+
+.contacto textarea {
+  resize: vertical;
+}
+
+.contacto button {
+  margin-top: 12px;
+}
+
+#respuesta-formulario {
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+/* =================================
+   8. PIE DE PÁGINA
+================================= */
+.pie {
+  padding: 40px 8%;
+  text-align: center;
+  background: var(--color-texto);
+  color: white;
+}
+
+.pie .logo span {
+  color: var(--color-secundario);
+}
+
+.pie p {
+  margin-top: 10px;
+}
+
+.pie > a:not(.logo) {
+  display: inline-block;
+  margin-top: 12px;
+  color: #ffd5c5;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* =================================
+   9. ADAPTACIÓN A CELULARES
+================================= */
+@media (max-width: 800px) {
+  .encabezado {
+    flex-direction: column;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: 12px 18px;
+  }
+
+  .portada {
+    grid-template-columns: 1fr;
+    padding: 55px 7%;
+  }
+
+  .portada-imagen img {
+    height: 300px;
+  }
+
+  .tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .tarjetas,
+  .galeria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seccion {
+    padding: 60px 6%;
+  }
+
+  .portada {
+    padding: 45px 6%;
+  }
+
+  .contacto form {
+    padding: 20px;
+  }
+
+  .menu a {
+    font-size: 0.88rem;
+  }
+}
